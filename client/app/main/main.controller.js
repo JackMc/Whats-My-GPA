@@ -3,15 +3,15 @@
 (function() {
     angular.module('whatsMyGpaApp')
         .controller('MainController', function ($scope) {
-            $scope.model = {
+          $scope.model = {
                 course: '',
                 gradeLetter: '',
                 cachedCGPANum: 0
             };
 
             // A list of table members (i.e. model objects)
-            $scope.tableMembers = [
-            ];
+            var items = window.localStorage.getItem('tableMembers');
+            $scope.tableMembers = items ? JSON.parse(items) : [];
 
             $scope.addRow = function () {
                 if ($scope.course && $scope.gradeLetter) {
@@ -22,11 +22,13 @@
                     });
                     $scope.course = '';
                     $scope.gradeLetter = '';
+                    window.localStorage.setItem('tableMembers', JSON.stringify($scope.tableMembers));
                 }
             };
 
             $scope.removeRow = function (i) {
                 $scope.tableMembers.splice(i, 1);
+                window.localStorage.setItem('tableMembers', JSON.stringify($scope.tableMembers));
             };
 
             $scope.add = function (grade) {
