@@ -18,6 +18,8 @@
                     course: $scope.course,
                     gradeLetter: $scope.gradeLetter,
                     cachedCGPANum: 0});
+                $scope.course = '';
+                $scope.gradeLetter = '';
             };
 
             $scope.add = function (grade) {
