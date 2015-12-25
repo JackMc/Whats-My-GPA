@@ -11,21 +11,6 @@
 
             // A list of table members (i.e. model objects)
             $scope.tableMembers = [
-                {
-                    course: 'COMP 1405',
-                    gradeLetter: 'A+',
-                    cachedCGPANum: 12
-                },
-                {
-                    course: 'COMP 1406',
-                    gradeLetter: 'A',
-                    cachedCGPANum: 11
-                },
-                {
-                    course: 'COMP 2804',
-                    gradeLetter: 'A',
-                    cachedCGPANum: 11
-                }
             ];
 
             $scope.addRow = function () {
