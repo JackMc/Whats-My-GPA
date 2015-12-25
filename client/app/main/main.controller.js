@@ -14,18 +14,19 @@
             ];
 
             $scope.addRow = function () {
-                $scope.add({
-                    course: $scope.course,
-                    gradeLetter: $scope.gradeLetter,
-                    cachedCGPANum: 0});
-                $scope.course = '';
-                $scope.gradeLetter = '';
+                if ($scope.course && $scope.gradeLetter) {
+                    $scope.add({
+                        course: $scope.course,
+                        gradeLetter: $scope.gradeLetter,
+                        cachedCGPANum: 0
+                    });
+                    $scope.course = '';
+                    $scope.gradeLetter = '';
+                }
             };
 
             $scope.removeRow = function (i) {
                 $scope.tableMembers.splice(i, 1);
-                $scope.course = '';
-                $scope.gradeLetter = '';
             };
 
             $scope.add = function (grade) {

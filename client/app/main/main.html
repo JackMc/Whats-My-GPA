@@ -26,22 +26,22 @@
   </table>
 
     <h2>Add Course</h2>
-    <form class="form-horizontal" role="form" ng-submit="addRow()">
+    <form name="new_course" class="form-horizontal" role="form" ng-submit="addRow()" onsubmit="$('#course').focus()">
         <div class="form-group">
             <label class="control-label col-md-2">Code (i.e. COMP 1405)</label>
             <div class="col-md-4">
-                <input type="text" class="form-control" name="course" ng-model="course"/>
+                <input type="text" class="form-control" name="course" ng-model="course" id="course" ng-pattern="/.{4} [0-9]{4}/"/>
+                <span ng-show="new_course.course.$error.pattern" class="course-error">That's not a valid grade!!</span>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-md-2">Grade (i.e. B+)</label>
             <div class="col-md-4">
-                <input type="text" class="form-control" name="grade" ng-model="gradeLetter"/>
+                <input type="text" class="form-control" name="grade" ng-model="gradeLetter" ng-pattern="/[ABCDF][\+-]?/"/>
+                <span ng-show="new_course.grade.$error.pattern" class="course-error">That's not a valid grade!!</span>
             </div>
         </div>
-        <div class="form-group">
-            <input type="submit" value="Add!"/>
-        </div>
+        <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
     </form>
 </div>
 
