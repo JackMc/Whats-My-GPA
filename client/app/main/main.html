@@ -16,6 +16,7 @@
           <tr ng-repeat="grade in tableMembers">
             <td>{{grade.course}}</td>
             <td>{{grade.gradeLetter}}</td>
+              <td class="table-hover"><a class="fa fa-remove" ng-click="removeRow($index)"></a></td>
           </tr>
           <tr>
               <th scope="row">CGPA</th>

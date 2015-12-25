@@ -22,6 +22,12 @@
                 $scope.gradeLetter = '';
             };
 
+            $scope.removeRow = function (i) {
+                $scope.tableMembers.splice(i, 1);
+                $scope.course = '';
+                $scope.gradeLetter = '';
+            };
+
             $scope.add = function (grade) {
                 // Calc CGPA!
                 grade.cachedCGPANum = {
