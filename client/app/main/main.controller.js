@@ -30,11 +30,16 @@
             };
 
             $scope.calculateCGPA = function () {
-                return Math.floor($scope.tableMembers.map(function(grade) {
-                                                                return grade.cachedCGPANum;
-                                                            }).reduce(function (a, b) {
-                                                                return a + b;
-                                                            }) / $scope.tableMembers.length);
+                if (this.tableMembers.length != 0) {
+                    return Math.floor($scope.tableMembers.map(function (grade) {
+                            return grade.cachedCGPANum;
+                        }).reduce(function (a, b) {
+                            return a + b;
+                        }, 0) / $scope.tableMembers.length);
+                }
+                else {
+                    return 0;
+                }
             };
         });
 
